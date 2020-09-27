@@ -116,11 +116,16 @@ function channelWithMostContent(channels) {
  ****************************************************************/
 function longestChannelName(channels) {
   // Your code here
-  let sortedByLongestName =  channels.sort(function(a, b) {
-    return a.name.localeCompare(b.name)
-  });
+  // let sortedByLongestName =  channels.sort(function(a, b) {
+  //   return a.name.localeCompare(b.name)
+  // });
 
-  return sortedByLongestName[0]
+  // return sortedByLongestName[0]
+  let ch = channels[0]
+  channels.forEach(element => {
+    if (element.name.length > ch.name.length){ch = element}
+  });
+  return ch
 }
 
 module.exports = {
