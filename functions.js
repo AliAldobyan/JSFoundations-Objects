@@ -103,7 +103,7 @@ function totalVideosDuration(channel) {
  ****************************************************************/
 function channelWithMostContent(channels) {
   // Your code here
-  let sortedByContent = channels.sort((first, second) => first.duration > second.duration)
+  let sortedByContent = channels.sort(channel => totalVideosDuration(channel))
   return sortedByContent[0]
 }
 
@@ -115,17 +115,9 @@ function channelWithMostContent(channels) {
  * BONUS: use iteration method `.sort()`
  ****************************************************************/
 function longestChannelName(channels) {
-  // Your code here
-  // let sortedByLongestName =  channels.sort(function(a, b) {
-  //   return a.name.localeCompare(b.name)
-  // });
 
-  // return sortedByLongestName[0]
-  let ch = channels[0]
-  channels.forEach(element => {
-    if (element.name.length > ch.name.length){ch = element}
-  });
-  return ch
+  let sortedByLongestName = channels.sort((first, second) => second.name.length - first.name.length);
+  return sortedByLongestName[0]
 }
 
 module.exports = {
